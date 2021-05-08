@@ -33,7 +33,7 @@ today = dd+'-'+mm+'-'+yyyy;
   //const url="https://api.openweathermap.org/data/2.5/weather?q="+query+"&appid="+apiKey+"&units="+unit;
 
 
-  const url="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode="+pinCode+"&date="+today;
+  const url="http://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode="+pinCode+"&date="+today;
 
   http.get(url,function(response){
     console.log(response.statusCode);
