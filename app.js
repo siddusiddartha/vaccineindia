@@ -35,7 +35,7 @@ today = dd+'-'+mm+'-'+yyyy;
 
   const url="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode="+pinCode+"&date="+today;
 
-  https.get(url,function(response){
+  http.get(url,function(response){
     console.log(response.statusCode);
 
     response.on("data",function(data){
