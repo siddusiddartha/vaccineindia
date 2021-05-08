@@ -39,12 +39,12 @@ today = dd+'-'+mm+'-'+yyyy;
 //const url="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode="+pinCode+"&date="+today+"&headers={"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"}";
 //const url="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=520012&date=08/05/2021&headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}";
 const headers={
-  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
+"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
 }
 
   https.get(url,headers,function(response){
     console.log(response.statusCode);
-    
+    console.log(headers);
 
     response.on("data",function(data){
       const centerData=JSON.parse(data);
