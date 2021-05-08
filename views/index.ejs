@@ -1,0 +1,46 @@
+<%-include("partials/header")-%>
+
+
+<h1><i class="fa fa-heartbeat"></i>&nbsp Details of Vaccine centers in <strong><%=pinCode%></strong> are</h1><br>
+
+<%for(let i=0;i<(centerData.centers.length);i++){%>
+
+<%let x=i%2;%>
+
+<div class="container-<%=x%>">
+
+<h3><%= i+1%>. &nbsp&nbsp <%=centerData.centers[i].name%> </h3>
+  <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-map-marker" aria-hidden="true"></i> Address:&nbsp <%= centerData.centers[i].address %></h4>
+<br>
+<%  for(let j=0;j<(centerData.centers[i].sessions.length);j++){%>
+
+ <strong><em>Date:&nbsp</strong></em><%= centerData.centers[i].sessions[j].date %>
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong><em>Vaccine Type:&nbsp</strong></em>
+<%=   centerData.centers[i].sessions[j].vaccine %>
+&nbsp(<%=centerData.centers[i].fee_type %>)
+ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+<%if(centerData.centers[i].sessions[j].available_capacity===0){%>
+  No Slots available <br>
+  <%}%>
+
+<%if(centerData.centers[i].sessions[j].available_capacity>0){%>
+  <strong>Available</strong> -
+  <strong><%=centerData.centers[i].sessions[j].min_age_limit%>&nbsp Slots&nbsp&nbsp</strong>
+  <a class="btn btn-success" href="https://selfregistration.cowin.gov.in/" target="_blank">Book on Cowin</a>
+  <%}%>
+
+<%}%>
+
+
+
+</div>
+
+
+<%}%>
+
+
+
+
+
+<%-include("partials/footer")-%>
