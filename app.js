@@ -70,9 +70,9 @@ res.render("index",{pinCode:pinCode,centerData:centerData});
 //       }
 
 //      res.send();
-   })
-  })
-})
+});
+});
+});
 
 
 app.listen(process.env.PORT || 3000,function(){
