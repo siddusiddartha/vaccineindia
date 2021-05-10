@@ -47,7 +47,7 @@ const headers={
 
   https.get(url,headers,function(response){
     console.log(response.statusCode);
-    console.log(headers);
+    //console.log(headers);
 
     response.on("data",function(data){
       const centerData=JSON.parse(data);

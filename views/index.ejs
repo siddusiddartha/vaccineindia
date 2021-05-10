@@ -14,7 +14,7 @@
 <br>
 <%  for(let j=0;j<(centerData.centers[i].sessions.length);j++){%>
 
- <strong><em>Date:&nbsp</strong></em><%= centerData.centers[i].sessions[j].date %>
+ <strong><em>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Date:&nbsp</strong></em><%= centerData.centers[i].sessions[j].date %>
   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong><em>Vaccine Type:&nbsp</strong></em>
 <%=   centerData.centers[i].sessions[j].vaccine %>
 &nbsp(<%=centerData.centers[i].fee_type %>)
@@ -27,7 +27,8 @@
 <%if(centerData.centers[i].sessions[j].available_capacity>0){%>
   <strong>Available</strong> -
   <strong><%=centerData.centers[i].sessions[j].min_age_limit%>&nbsp Slots&nbsp&nbsp</strong>
-  <a class="btn btn-success" href="https://selfregistration.cowin.gov.in/" target="_blank">Book on Cowin</a>
+  <a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button" class="btn btn-success" name="button">Book on Cowin</button></a> <br><br>
+
   <%}%>
 
 <%}%>
