@@ -36,10 +36,12 @@ hr{
     display: inline-block;
 }
 
-.agelimit,.dosenum{
+.agespan,.dosenum{
   padding-right: 1rem;
 }
-
+.agespan{
+  margin-left: -0.2rem;
+}
 .timings{
   padding-left: 3rem;
 }

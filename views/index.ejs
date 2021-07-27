@@ -25,8 +25,9 @@
 
 <h3><%= i+1%>. &nbsp&nbsp <%=centerData.centers[i].name%> </h3>
   <h4 class="address">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-map-marker-alt fa-xs" aria-hidden="true"></i> Address:&nbsp <%= centerData.centers[i].address %></h4>
-  <h4 class="timings"><i class="fas fa-clock"></i> Timings :<%let y=tConvert(centerData.centers[i].from); let z=tConvert(centerData.centers[i].to) %> <%=y%>  to <%=z%></h4>
+  <h4 class="timings"><i class="fas fa-clock"></i> Timings:<%let y=tConvert(centerData.centers[i].from); let z=tConvert(centerData.centers[i].to) %> <%=y%>  to <%=z%></h4>
 <br><br>
+
 
 
 <%  for(let j=0;j<(centerData.centers[i].sessions.length);j++){%>
@@ -37,17 +38,22 @@
 &nbsp(<%=centerData.centers[i].fee_type %>)
  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
-<p class="agelimit"><strong><em>Age:</em></strong> <%= centerData.centers[0].sessions[0].min_age_limit%>- <%= centerData.centers[0].sessions[0].max_age_limit%>&nbsp</p>
-<p class="dosenum"><strong><em>Dose-1:</em></strong> <%=centerData.centers[0].sessions[0].available_capacity_dose1%> <strong><em>Dose-2: </em></strong><%=centerData.centers[0].sessions[0].available_capacity_dose2%>&nbsp</p>
+<p class="agelimit"><strong><em>Age:</em></strong> <%=centerData.centers[i].sessions[j].min_age_limit%></p>
+<%if(centerData.centers[i].sessions[j].max_age_limit){%>
+   <span class="agespan">-<%=centerData.centers[i].sessions[j].max_age_limit%></span>
+<%} else {%>
+<span class="agespan">+</span>
+<%}%>
+
+<p class="dosenum"><strong><em>Dose-1:</em> <%=centerData.centers[i].sessions[j].available_capacity_dose1%> </strong>slots<strong> <em> &nbspDose-2: </em><%=centerData.centers[i].sessions[j].available_capacity_dose2%></strong> slots&nbsp</p>
 
 <%if(centerData.centers[i].sessions[j].available_capacity===0){%>
-  <button type="button" class="btn btn-warning btn-sm">No Slots available</button><br>
+  <button type="button" class="btn btn-warning btn-sm">No Slots available</button><br> <br>
   <%}%>
 
 <%if(centerData.centers[i].sessions[j].available_capacity>0){%>
-  <strong>Available</strong> -
-  <strong><%=centerData.centers[i].sessions[j].min_age_limit%>&nbsp Slots&nbsp&nbsp</strong>
-  <a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button" class="btn btn-success btn-sm" name="button">Book on Cowin</button></a> <br><br>
+
+  <a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button" class="btn btn-success btn-sm" name="button">Book on Cowin</button></a> <br><br><br>
 
   <%}%>
 
