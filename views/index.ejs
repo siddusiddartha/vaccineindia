@@ -1,7 +1,7 @@
 <%-include("partials/header")-%>
 
 
-<h1><i class="fas fa-heartbeat"></i>&nbsp Details of Vaccine centers in <strong><%=pinCode%></strong> are</h1><br>
+<h1><i class="fas fa-heartbeat fa-sm"></i>&nbsp Details of Vaccine centers in <strong><%=pinCode%></strong> are</h1><br>
 
 <%for(let i=0;i<(centerData.centers.length);i++){%>
 
@@ -10,7 +10,7 @@
 <div class="container-<%=x%>">
 
 <h3><%= i+1%>. &nbsp&nbsp <%=centerData.centers[i].name%> </h3>
-  <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-map-marker-alt" aria-hidden="true"></i> Address:&nbsp <%= centerData.centers[i].address %></h4>
+  <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-map-marker-alt fa-xs" aria-hidden="true"></i> Address:&nbsp <%= centerData.centers[i].address %></h4>
 <br>
 <%  for(let j=0;j<(centerData.centers[i].sessions.length);j++){%>
 

@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding-bottom: 6rem;
   min-height: 100%;
+  font-weight: 400;
 }
 hr{
   width: 20%;
@@ -19,41 +20,48 @@ hr{
  .container-0{
   background-color: #caf7e3;
   padding: 1rem;
-  padding-bottom: 3rem;
-  margin: 2rem 0;
+  padding-bottom: 2rem;
+  margin: 1rem 0 1.5rem;
   border-radius: 1rem;
 }
 .container-1{
-background-color: #edffec;
-padding: 1rem;
-  padding-bottom: 3rem;
-    margin: 2rem 0;
+  background-color: #edffec;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  margin: 1rem 0 1.5rem;
   border-radius: 1rem;
 }
 
-.h1-text{
-  font-weight: 700;
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
 }
-
-.container-fluid {
+h3{
+  font-size: 1.5rem;
+}
+h4{
+  font-size: 1.1rem;
+}
+/* .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
-}
+} */
 .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
     border: 0;
     border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
+    margin-bottom: 1rem;
     letter-spacing: 5px;
 }
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
+.navbar-light .navbar-brand{
+    padding-left: 7rem;
+    font-family:'Montserrat', sans-serif;
+    color: grey;
 }
 
+
 .footer-padding {
-	padding-bottom: 60px;
+	padding-bottom: 1rem;
 }
 
 .footer {
