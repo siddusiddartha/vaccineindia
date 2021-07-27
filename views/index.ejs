@@ -1,5 +1,19 @@
 <%-include("partials/header")-%>
 
+<% function tConvert(time) {%>
+  <%// Check correct time format and split into components%>
+<%  time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time]; %>
+
+<%  if (time.length > 1) { // If time format correct %>
+  <%  time = time.slice (1);  // Remove full string match value %>
+<%    time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM %>
+<%    time[0] = +time[0] % 12 || 12; // Adjust hours %>
+<%  } %>
+<%  return time.join (''); // return adjusted time or original string %>
+<%} %>
+
+
+
 
 <h1><i class="fas fa-heartbeat fa-sm"></i>&nbsp Details of Vaccine centers in <strong><%=pinCode%></strong> are</h1><br>
 
@@ -10,8 +24,11 @@
 <div class="container-<%=x%>">
 
 <h3><%= i+1%>. &nbsp&nbsp <%=centerData.centers[i].name%> </h3>
-  <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-map-marker-alt fa-xs" aria-hidden="true"></i> Address:&nbsp <%= centerData.centers[i].address %></h4>
-<br>
+  <h4 class="address">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-map-marker-alt fa-xs" aria-hidden="true"></i> Address:&nbsp <%= centerData.centers[i].address %></h4>
+  <h4 class="timings"><i class="fas fa-clock"></i> Timings :<%let y=tConvert(centerData.centers[i].from); let z=tConvert(centerData.centers[i].to) %> <%=y%>  to <%=z%></h4>
+<br><br>
+
+
 <%  for(let j=0;j<(centerData.centers[i].sessions.length);j++){%>
 
  <strong><em>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Date:&nbsp</strong></em><%= centerData.centers[i].sessions[j].date %>
@@ -20,14 +37,17 @@
 &nbsp(<%=centerData.centers[i].fee_type %>)
  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
+<p class="agelimit"><strong><em>Age:</em></strong> <%= centerData.centers[0].sessions[0].min_age_limit%>- <%= centerData.centers[0].sessions[0].max_age_limit%>&nbsp</p>
+<p class="dosenum"><strong><em>Dose-1:</em></strong> <%=centerData.centers[0].sessions[0].available_capacity_dose1%> <strong><em>Dose-2: </em></strong><%=centerData.centers[0].sessions[0].available_capacity_dose2%>&nbsp</p>
+
 <%if(centerData.centers[i].sessions[j].available_capacity===0){%>
-  <button type="button" class="btn btn-warning">No Slots available</button><br>
+  <button type="button" class="btn btn-warning btn-sm">No Slots available</button><br>
   <%}%>
 
 <%if(centerData.centers[i].sessions[j].available_capacity>0){%>
   <strong>Available</strong> -
   <strong><%=centerData.centers[i].sessions[j].min_age_limit%>&nbsp Slots&nbsp&nbsp</strong>
-  <a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button" class="btn btn-success" name="button">Book on Cowin</button></a> <br><br>
+  <a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button" class="btn btn-success btn-sm" name="button">Book on Cowin</button></a> <br><br>
 
   <%}%>
 

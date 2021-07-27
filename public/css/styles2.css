@@ -32,6 +32,18 @@ hr{
   border-radius: 1rem;
 }
 
+.address, .timings, .agelimit,.dosenum {
+    display: inline-block;
+}
+
+.agelimit,.dosenum{
+  padding-right: 1rem;
+}
+
+.timings{
+  padding-left: 3rem;
+}
+
 h1,h2,h3,h4,h5,h6{
   font-weight: normal;
 }
