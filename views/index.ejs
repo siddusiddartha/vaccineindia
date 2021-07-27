@@ -45,13 +45,13 @@
 <span class="agespan">+</span>
 <%}%>
 
-<p class="dosenum"><strong><em>Dose-1:</em> <%=centerData.centers[i].sessions[j].available_capacity_dose1%> </strong>slots<strong> <em> &nbspDose-2: </em><%=centerData.centers[i].sessions[j].available_capacity_dose2%></strong> slots&nbsp</p>
-
 <%if(centerData.centers[i].sessions[j].available_capacity===0){%>
   <button type="button" class="btn btn-warning btn-sm">No Slots available</button><br> <br>
   <%}%>
 
 <%if(centerData.centers[i].sessions[j].available_capacity>0){%>
+
+  <p class="dosenum"><strong><em>Dose-1:</em> <%=centerData.centers[i].sessions[j].available_capacity_dose1%> </strong>slots<strong> <em> &nbspDose-2: </em><%=centerData.centers[i].sessions[j].available_capacity_dose2%></strong> slots&nbsp</p>
 
   <a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button" class="btn btn-success btn-sm" name="button">Book on Cowin</button></a> <br><br><br>
 
