@@ -49,28 +49,21 @@ const headers={
     console.log(response.statusCode);
     //console.log(headers);
 
-    response.on("data",function(data){
-      const centerData=JSON.parse(data);
+    if(response.statusCode===500){
+      res.send("500");
+    }
+    else if(response.statusCode===400){
+      res.render("400");
+    }
+    else{
+      response.on("data",function(data){
+        const centerData=JSON.parse(data);
 
-res.render("index",{pinCode:pinCode,centerData:centerData});
+        res.render("index",{pinCode:pinCode,centerData:centerData});
+  });
+    }
 
-//       res.write("<h1>Details of Vaccine centers in "+pinCode+" are</h1><br>")
-//       for(var i=0;i<(centerData.centers.length);i++){
-//         res.write("<h3>"+(i+1)+".)&nbsp&nbsp"+centerData.centers[i].name+
-//         "&nbsp&nbsp----&nbsp&nbsp </h3> <h4>Address:&nbsp"+centerData.centers[i].address+"</h4>");
-//
-//         for(var j=0;j<(centerData.centers[i].sessions.length);j++){
-//         res.write("<strong><em>Date:&nbsp</strong></em>"+ centerData.centers[i].sessions[j].date+
-//         "&nbsp&nbsp-----&nbsp&nbsp <strong><em>Vaccine Type:&nbsp</strong></em>"
-//         +centerData.centers[i].sessions[j].vaccine+
-//         "&nbsp&nbsp-----&nbsp&nbsp <strong><em>Available Capacity:&nbsp</strong></em>"
-//         +centerData.centers[i].sessions[j].available_capacity+"<br>");
-//       }
-// res.write("<br><br><br>")
-//       }
 
-//      res.send();
-});
 });
 });
 
